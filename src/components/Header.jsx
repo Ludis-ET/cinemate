@@ -1,7 +1,10 @@
+import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import Logo from "../assets/logo.png";
 
 export const Header = () => {
+  const [hidden, setHidden] = useState(true);
+
   const activeClass =
     "text-base block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500";
   const inactiveClass =
@@ -128,7 +131,7 @@ export const Header = () => {
             <li>
               <NavLink
                 to="/"
-                className={({isActive}) =>
+                className={({ isActive }) =>
                   isActive ? activeClass : inactiveClass
                 }
                 end
@@ -139,7 +142,7 @@ export const Header = () => {
             <li>
               <NavLink
                 to="/movies/popular"
-                className={({isActive}) =>
+                className={({ isActive }) =>
                   isActive ? activeClass : inactiveClass
                 }
               >
@@ -149,7 +152,7 @@ export const Header = () => {
             <li>
               <NavLink
                 to="/movies/top"
-                className={({isActive}) =>
+                className={({ isActive }) =>
                   isActive ? activeClass : inactiveClass
                 }
               >
@@ -159,7 +162,7 @@ export const Header = () => {
             <li>
               <NavLink
                 to="/movies/upcoming"
-                className={({isActive}) =>
+                className={({ isActive }) =>
                   isActive ? activeClass : inactiveClass
                 }
               >
