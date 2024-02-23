@@ -1,4 +1,4 @@
-import { Header } from "./Header";
-import { Footer } from "./Footer";
+export { Header } from "./Header";
+export { Footer } from "./Footer";
 
-import { Card } from "./Card";
+export { Card } from "./Card";
