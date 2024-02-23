@@ -5,7 +5,7 @@ import Logo from "../assets/logo.png";
 export const Header = () => {
   const [hidden, setHidden] = useState(true);
   const [dark, setDark] = useState(
-    JSON.parse(localStorage.getItem("DarkMode")) || true
+    JSON.parse(localStorage.getItem("DarkMode"))
   );
 
   useEffect(() => {
@@ -61,7 +61,7 @@ export const Header = () => {
           </button>
           <button
             type="button"
-            class="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm p-2 me-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700"
+            className="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm p-2 me-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700"
             onClick={() => setDark(!dark)}
           >
             {!dark ? (
