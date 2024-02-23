@@ -2,6 +2,11 @@ import { Link, NavLink } from "react-router-dom";
 import Logo from "../assets/logo.png";
 
 export const Header = () => {
+  const activeClass =
+    "text-base block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500";
+  const inactiveClass =
+    "text-base block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700";
+
   return (
     <nav className="bg-white border-gray-200 dark:bg-gray-900">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
@@ -123,7 +128,9 @@ export const Header = () => {
             <li>
               <NavLink
                 to="/"
-                className="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500"
+                className={({isActive}) =>
+                  isActive ? activeClass : inactiveClass
+                }
                 end
               >
                 Home
@@ -132,7 +139,9 @@ export const Header = () => {
             <li>
               <NavLink
                 to="/movies/popular"
-                className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+                className={({isActive}) =>
+                  isActive ? activeClass : inactiveClass
+                }
               >
                 Popular
               </NavLink>
@@ -140,7 +149,9 @@ export const Header = () => {
             <li>
               <NavLink
                 to="/movies/top"
-                className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+                className={({isActive}) =>
+                  isActive ? activeClass : inactiveClass
+                }
               >
                 Top Rated
               </NavLink>
@@ -148,7 +159,9 @@ export const Header = () => {
             <li>
               <NavLink
                 to="/movies/upcoming"
-                className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+                className={({isActive}) =>
+                  isActive ? activeClass : inactiveClass
+                }
               >
                 Upcoming
               </NavLink>
