@@ -9,13 +9,17 @@ export const Search = (api) => {
   const { data: movies } = useFetch(api, query);
 
   return (
-    <main className="max-w-7xl mx-auto py-7 flex flex-wrap justify-start">
-      <section>
-        <p className="text-3xl text-gray-700 dark:text-white">{movie.length === 0 ? `No results Found for \"${query}\"` : `Search for : \"${query}\"`}</p>
-      </section>
-      {movies.map((movie) => (
-        <Card key={movie.id} movie={movie} />
-      ))}
-    </main>
+    <section>
+      <p className="text-3xl text-gray-700 dark:text-white p-4">
+        {movies.length === 0
+          ? `No results Found for \"${query}\"`
+          : `Search for : \"${query}\"`}
+      </p>
+      <main className="max-w-7xl mx-auto py-7 flex flex-wrap justify-start">
+        {movies.map((movie) => (
+          <Card key={movie.id} movie={movie} />
+        ))}
+      </main>
+    </section>
   );
 };
