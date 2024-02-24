@@ -1,9 +1,14 @@
 import { useState } from "react";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { Card } from "../components/Card";
+import { useFetch } from "../hooks/useFetch";
 
 export function MovieDetail() {
   const params = useParams();
+  const { data: recommendations } = useFetch(
+    `movie/${params.id}/recommendations`
+  );
   const [movie, setMovie] = useState({});
   const auth = import.meta.env.REACT_APP_API_AUTHORIZATION;
   const options = {
@@ -22,9 +27,7 @@ export function MovieDetail() {
       );
       const json = await response.json();
       setMovie(json);
-      console.log(json);
     }
-    fetchMovieDetails();
   }, []);
 
   const image = movie.poster_path
@@ -46,7 +49,10 @@ export function MovieDetail() {
             {movie.genres &&
               Array.isArray(movie.genres) &&
               movie.genres.map((g) => (
-                <span key={g.id} className="mr-2 border border-gray-200 rounded dark:border-gray-600 p-2">
+                <span
+                  key={g.id}
+                  className="mr-2 border border-gray-200 rounded dark:border-gray-600 p-2"
+                >
                   {g.name}
                 </span>
               ))}
@@ -104,6 +110,17 @@ export function MovieDetail() {
               {movie.imdb_id}
             </a>
           </p>
+        </div>
+      </section>
+
+      <section className="max-w-7xl mx-auto py-7">
+        <h1 className="font-bold text-4xl my-3 text-center lg:text-center text-gray-700 dark:text-white">
+          Recommendations
+        </h1>
+        <div className="flex justify-start flex-wrap other:justify-evenly">
+          {recommendations.map((movie) => (
+            <Card key={movie.id} movie={movie} />
+          ))}
         </div>
       </section>
     </main>

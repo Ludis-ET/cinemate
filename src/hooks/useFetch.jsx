@@ -7,7 +7,6 @@ export const useFetch = (url, query = "") => {
   const address = query
     ? `https://api.themoviedb.org/3/search/movie?query=${query}`
     : `https://api.themoviedb.org/3/${url}`;
-  console.log(query, address);
   const options = {
     method: "GET",
     headers: {
