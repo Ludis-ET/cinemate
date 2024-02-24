@@ -1,16 +1,18 @@
 import { Link } from "react-router-dom";
 
 export const Card = ({ movie }) => {
-  const image = `https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`;
+  const image = movie.backdrop_path
+    ? `https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`
+    : "https://img.freepik.com/premium-vector/default-image-icon-vector-missing-picture-page-website-design-mobile-app-no-photo-available_87543-11093.jpg";
   const overview = 200;
   const seeMore = (
     <Link
       to={`/movie/${movie.id}`}
-      class="inline-flex items-center font-medium text-blue-600 dark:text-blue-500 hover:underline"
+      className="inline-flex items-center font-medium text-blue-600 dark:text-blue-500 hover:underline"
     >
       Read More
       <svg
-        class="w-4 h-4 ms-2 rtl:rotate-180"
+        className="w-4 h-4 ms-2 rtl:rotate-180"
         aria-hidden="true"
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
@@ -18,9 +20,9 @@ export const Card = ({ movie }) => {
       >
         <path
           stroke="currentColor"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="2"
           d="M1 5h12m0 0L9 1m4 4L9 9"
         />
       </svg>
@@ -44,11 +46,11 @@ export const Card = ({ movie }) => {
           {movie.overview.length > overview && (
             <Link
               to={`/movie/${movie.id}`}
-              class="inline-flex items-center font-medium text-blue-600 dark:text-blue-500 hover:underline"
+              className="inline-flex items-center font-medium text-blue-600 dark:text-blue-500 hover:underline"
             >
               Read More
               <svg
-                class="w-4 h-4 ms-2 rtl:rotate-180"
+                className="w-4 h-4 ms-2 rtl:rotate-180"
                 aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -56,9 +58,9 @@ export const Card = ({ movie }) => {
               >
                 <path
                   stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
                   d="M1 5h12m0 0L9 1m4 4L9 9"
                 />
               </svg>

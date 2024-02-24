@@ -8,25 +8,25 @@ export const ALLRoutes = () => {
         <Route
           path="/"
           element={
-            <MovieList api="https://api.themoviedb.org/3/movie/now_playing" />
+            <MovieList api="movie/now_playing" />
           }
         />
         <Route
           path="/movies/popular"
           element={
-            <MovieList api="https://api.themoviedb.org/3/movie/popular" />
+            <MovieList api="movie/popular" />
           }
         />
         <Route
           path="/movies/upcoming"
           element={
-            <MovieList api="https://api.themoviedb.org/3/movie/upcoming" />
+            <MovieList api="movie/upcoming" />
           }
         />
         <Route
           path="/movies/top"
           element={
-            <MovieList api="https://api.themoviedb.org/3/movie/top_rated" />
+            <MovieList api="movie/top_rated" />
           }
         />
         <Route path="/search" element={<Search />} />
